@@ -1,10 +1,5 @@
 <?php
 
-use App\Http\Middleware\AdminNoCache;
-use App\Http\Middleware\EnsureFeatureEnabled;
-use App\Http\Middleware\EnsureUserIsAdmin;
-use App\Http\Middleware\SecureAdminSession;
-use Illuminate\Contracts\Auth\Middleware\AuthenticatesRequests;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -18,22 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        $middleware->alias([
-            'admin' => EnsureUserIsAdmin::class,
-            'secure.admin' => SecureAdminSession::class,
-            'feature' => EnsureFeatureEnabled::class,
-        ]);
-
-        // Covers responses that never reach SecureAdminSession (login page, redirects, 403s).
-        // It has to wrap authentication: Laravel's priority sorting runs `auth`
-        // ahead of unlisted middleware, so an appended AdminNoCache would never
-        // see the guest redirect that `auth` produces.
-        $middleware->web(prepend: [AdminNoCache::class]);
-        $middleware->prependToPriorityList(before: AuthenticatesRequests::class, prepend: AdminNoCache::class);
-
-        // The web guard is only used by the admin panel.
-        $middleware->redirectGuestsTo(fn () => route('admin.login'));
-        $middleware->redirectUsersTo(fn () => route('admin.dashboard'));
+        //
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
