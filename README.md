@@ -1,4 +1,13 @@
-# SafeBite — Street-Food Vendor Locator with Hygiene Ratings
+# StreetBite — Street-Food Vendor Locator with Hygiene Ratings
+
+[![Flutter](https://img.shields.io/badge/Flutter-Mobile_App-02569B?logo=flutter&logoColor=white)](https://flutter.dev/)
+[![Laravel](https://img.shields.io/badge/Laravel-Backend_API-FF2D20?logo=laravel&logoColor=white)](https://laravel.com/)
+[![Firebase](https://img.shields.io/badge/Firebase-Realtime_%26_Notifications-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com/)
+[![Google Maps](https://img.shields.io/badge/Google_Maps-Location_Services-4285F4?logo=googlemaps&logoColor=white)](https://developers.google.com/maps)
+[![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Filament](https://img.shields.io/badge/Filament-Admin_Panel-FDAE4B?logoColor=black)](https://filamentphp.com/)
+[![Figma](https://img.shields.io/badge/Figma-UI%2FUX_Design-F24E1E?logo=figma&logoColor=white)](https://www.figma.com/)
 
 A mobile app that helps consumers discover nearby street-food vendors with verified hygiene ratings, and gives vendors a simple way to build trust and grow their customer base — without needing complex technology.
 
@@ -8,13 +17,13 @@ Built as part of **IT3060 — Human Computer Interaction**, SLIIT (3rd Year, 2nd
 
 ## 📱 Overview
 
-Street food is a daily reality for many people, but there's no reliable way to check a stall's hygiene before buying — and clean, hardworking vendors have no way to prove it. SafeBite solves this by combining:
+Street food is a daily reality for many people, but there's no reliable way to check a stall's hygiene before buying — and clean, hardworking vendors have no way to prove it. **StreetBite** solves this by combining:
 
-- **Verified hygiene ratings**, backed by a 5-point inspection checklist (water source, utensil/glove hygiene, waste disposal, food covering, overall cleanliness)
-- **Crowd-sourced photo evidence**, automatically timestamped to prevent outdated or misleading images
-- **A live map** to discover nearby vendors, filterable by hygiene rating and distance
-- **A minimal-tap vendor dashboard**, available in Sinhala, for busy vendors with limited smartphone experience
-- **A health inspector submission flow**, so ratings are grounded in real, structured evaluation — not just self-reported claims
+- **Verified hygiene ratings**, backed by a 5-point inspection checklist (water source, utensil/glove hygiene, waste disposal, food covering, and overall cleanliness).
+- **Crowd-sourced photo evidence**, automatically timestamped to prevent outdated or misleading images.
+- **A live map** to discover nearby vendors, filterable by hygiene rating and distance.
+- **A minimal-tap vendor dashboard**, available in Sinhala, for busy vendors with limited smartphone experience.
+- **A health inspector submission flow**, so ratings are grounded in real, structured evaluation — not just self-reported claims.
 
 ---
 
@@ -40,13 +49,13 @@ Street food is a daily reality for many people, but there's no reliable way to c
 
 | Layer | Technology | Why |
 |---|---|---|
-| Mobile App | **Flutter** | Single codebase for Android + iOS, strong performance on low-end devices, built-in localization for Sinhala support |
-| Backend / API | **Laravel** | Fast REST API development, built-in auth (Sanctum) for 3 distinct roles (consumer, vendor, inspector), scheduled jobs for periodic rating re-verification |
-| Real-time & Notifications | **Firebase** (Firestore / FCM) | Live status updates, map pin sync, and push notifications without constant API polling |
-| Maps | **Google Maps Flutter Plugin** | Live vendor pins, radius filtering, location services |
-| Database | **MySQL / PostgreSQL** | Relational data for vendors, users, reviews, ratings, and inspection records |
+| Mobile App | **Flutter** | Single codebase for Android and iOS, strong performance on low-end devices, and localization support for Sinhala |
+| Backend / API | **Laravel** | Fast REST API development, built-in authentication with Sanctum for three distinct roles (consumer, vendor, inspector), and scheduled jobs for periodic rating re-verification |
+| Real-time & Notifications | **Firebase (Firestore / FCM)** | Live status updates, map pin synchronization, and push notifications without constant API polling |
+| Maps | **Google Maps Flutter Plugin** | Live vendor pins, radius filtering, and location services |
+| Database | **MySQL / PostgreSQL** | Relational data management for vendors, users, reviews, ratings, and inspection records |
 | Design & Prototyping | **Figma** | Shared component library and collaborative prototyping across all modules during the design phase |
-| Super Admin Panel | **Laravel Filament** | Web-based admin dashboard generated directly from the same Laravel backend/models — no separate frontend needed |
+| Super Admin Panel | **Laravel Filament** | Web-based admin dashboard integrated with the same Laravel backend and models, avoiding the need for a separate frontend |
 
 ---
 
@@ -54,44 +63,45 @@ Street food is a daily reality for many people, but there's no reliable way to c
 
 The app is structured around four functional modules, each mapped to a set of requirements:
 
-1. **Discovery, Proximity & Map Filtering** — map view, search, radius/hygiene filter sheet, quick-info vendor card
-2. **Vendor Profile & Hygiene Breakdown** — vendor profile, PHI badge, 5-point checklist, verified water-source tag, daily menu
-3. **Crowd Evidence & Review Submission** — photo proof gallery, review/rating modal, timestamped in-app camera
-4. **Vendor Dashboard & Inspector Checklist** — Sinhala vendor dashboard, operating hours/menu management, inspector submission form
+1. **Discovery, Proximity & Map Filtering** — map view, search, radius/hygiene filter sheet, and quick-info vendor card.
+2. **Vendor Profile & Hygiene Breakdown** — vendor profile, PHI badge, 5-point checklist, verified water-source tag, and daily menu.
+3. **Crowd Evidence & Review Submission** — photo proof gallery, review/rating modal, and timestamped in-app camera.
+4. **Vendor Dashboard & Inspector Checklist** — Sinhala vendor dashboard, operating hours and menu management, and inspector submission form.
 
 ---
 
 ## 🖥️ Super Admin Web Panel
 
-A separate, web-based control panel — kept out of the mobile app entirely — for platform-level oversight that consumers and vendors never see:
+A separate, web-based control panel — kept out of the mobile app entirely — for platform-level oversight that consumers and vendors never see.
 
 | Feature | Description |
 |---|---|
 | User Management | View, suspend, or verify consumer and vendor accounts |
 | Vendor Oversight | Review self-onboarded stalls; edit, remove, or flag suspicious listings |
 | Inspector Accounts | Create and manage certified health inspector logins |
-| Hygiene Rating Oversight | View all ratings, manually trigger re-verification, override disputed scores |
-| Review & Photo Moderation | Remove fake reviews or inappropriate photos; audit timestamp integrity |
-| Checklist Criteria Management | Edit the 5-point hygiene checklist categories without a code deploy |
-| Analytics Dashboard | Platform-wide stats — active vendors, average ratings, flagged content |
-| Content & Localization | Manage Sinhala/English/Tamil translation strings |
+| Hygiene Rating Oversight | View all ratings, manually trigger re-verification, and override disputed scores |
+| Review & Photo Moderation | Remove fake reviews or inappropriate photos and audit timestamp integrity |
+| Checklist Criteria Management | Edit the 5-point hygiene checklist categories without a code deployment |
+| Analytics Dashboard | Platform-wide statistics — active vendors, average ratings, and flagged content |
+| Content & Localization | Manage Sinhala, English, and Tamil translation strings |
 | Dispute Resolution | Handle vendor appeals against a low rating or a review |
 
-Built with **Laravel Filament**, sharing the same models and database as the mobile app's API — so admin actions (e.g., suspending a vendor) take effect immediately across the platform with no separate sync step.
+Built with **Laravel Filament**, sharing the same models and database as the mobile app's API. Admin actions — such as suspending a vendor — can therefore take effect across the platform without a separate synchronization step.
 
 ---
 
 ## 📂 Suggested Project Structure
 
-```
-safebite/
-├── backend/                 # Laravel API + Filament Admin Panel
+```text
+streetbite/
+├── backend/                      # Laravel API + Filament Admin Panel
 │   ├── app/
 │   │   ├── Models/
-│   │   ├── Http/Controllers/
-│   │   ├── Http/Middleware/
+│   │   ├── Http/
+│   │   │   ├── Controllers/
+│   │   │   └── Middleware/
 │   │   └── Filament/
-│   │       └── Resources/       # Admin panel CRUD resources
+│   │       └── Resources/         # Admin panel CRUD resources
 │   │           ├── UserResource.php
 │   │           ├── VendorResource.php
 │   │           ├── InspectorResource.php
@@ -103,13 +113,13 @@ safebite/
 │   │   └── api.php
 │   └── .env.example
 │
-├── mobile/                  # Flutter app
+├── mobile/                        # Flutter app
 │   ├── lib/
 │   │   ├── modules/
-│   │   │   ├── discovery/       # Module 1 — Map & Filtering
-│   │   │   ├── vendor_profile/  # Module 2 — Profile & Hygiene Breakdown
-│   │   │   ├── reviews/         # Module 3 — Photo/Review Submission
-│   │   │   └── vendor_dashboard/# Module 4 — Dashboard & Inspector Checklist
+│   │   │   ├── discovery/         # Module 1 — Map & Filtering
+│   │   │   ├── vendor_profile/    # Module 2 — Profile & Hygiene Breakdown
+│   │   │   ├── reviews/           # Module 3 — Photo/Review Submission
+│   │   │   └── vendor_dashboard/  # Module 4 — Dashboard & Inspector Checklist
 │   │   ├── shared/
 │   │   │   ├── widgets/
 │   │   │   └── services/
@@ -136,14 +146,17 @@ php artisan serve
 
 ### Super Admin Panel (Laravel Filament)
 
+From the `backend` directory, install Filament and configure the admin panel:
+
 ```bash
-cd backend
 composer require filament/filament:"^3.0" -W
 php artisan filament:install --panels
-php artisan make:filament-user   # create your first super admin login
+php artisan make:filament-user
 ```
 
-Once installed, the admin panel is available at `http://localhost:8000/admin` (default Filament path) using the same Laravel backend and database as the mobile app's API.
+The final command creates your first super admin login.
+
+Once configured, the admin panel is available at `http://localhost:8000/admin` using the same Laravel backend and database as the mobile app's API.
 
 ### Mobile App (Flutter)
 
@@ -153,13 +166,13 @@ flutter pub get
 flutter run
 ```
 
-> Make sure to add your Google Maps API key and Firebase configuration files (`google-services.json` / `GoogleService-Info.plist`) before running the app.
+> **Note:** Configure your Google Maps API key and Firebase configuration files (`google-services.json` / `GoogleService-Info.plist`) before running the app.
 
 ---
 
 ## 🧪 Testing
 
-Usability testing was conducted with 5 participants (3 consumers, 1 proxy vendor, 1 proxy health inspector) using a moderated think-aloud method, measured against:
+Usability testing was conducted with 5 participants (3 consumers, 1 proxy vendor, and 1 proxy health inspector) using a moderated think-aloud method, measured against:
 
 - **Task Completion Rate (TCR)** — target ≥ 80%
 - **Single Ease Question (SEQ)** — target ≥ 5.5 / 7
