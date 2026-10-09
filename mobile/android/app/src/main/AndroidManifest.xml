@@ -1,6 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- "Use Current GPS Location" on stall onboarding. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- No CAMERA permission on purpose: image_picker opens the system camera app, which
+         needs none, and declaring CAMERA here would make that capture fail unless the
+         permission were also requested at run time. -->
     <application
-        android:label="mobile"
+        android:label="StreetBite"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
