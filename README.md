@@ -1,4 +1,4 @@
-# SafeBite — Street-Food Vendor Locator with Hygiene Ratings
+# StreetBite — Street-Food Vendor Locator with Hygiene Ratings
 
 A mobile app that helps consumers discover nearby street-food vendors with verified hygiene ratings, and gives vendors a simple way to build trust and grow their customer base — without needing complex technology.
 
