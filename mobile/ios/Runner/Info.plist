@@ -6,8 +6,20 @@
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>StreetBite uses your location to pin where your food stall is, so customers can find it.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>StreetBite uses the camera to take a photo of your stall and your food.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>StreetBite lets you choose a photo of your stall and your food from your library.</string>
 	<key>CFBundleDisplayName</key>
-	<string>Mobile</string>
+	<string>StreetBite</string>
+	<!-- Lets development builds reach the local Laravel server over plain HTTP. -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

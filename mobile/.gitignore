@@ -46,22 +46,3 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
-
-# AI tools and instruction files
-/.claude/
-/.gemini/
-/.windsurf/
-/.junie/
-/.kiro/
-/.ai/
-/.codex
-/.cursor/
-/.aider*
-/.cursorrules
-/.windsurfrules
-/.github/copilot-instructions.md
-/.mcp.json
-CLAUDE.md
-AGENTS.md
-GEMINI.md
-COPILOT.md
